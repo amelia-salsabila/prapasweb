@@ -4,20 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class   GalaxiesTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::create('galaxies', function (Blueprint $table) {
+        Schema::create('planets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('number_stars');
+            $table->integer('distance_from_sun');
+            $table->date('at');
             $table->timestamps();
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('galaxies');
+        //
     }
-}
+};

@@ -1,5 +1,6 @@
-@extends('layout.main')
+@extends('layouts.main')
 
-@section('content')
-<h1> Ini adalah halaman home </h1>
+@section('container')
+    <!-- tempat content -->
+    <h1>Ini adalah halaman home</h1>
 @endsection

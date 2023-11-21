@@ -9,10 +9,13 @@
           <a class="nav-link" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/planets">Planets</a>
+          <a class="nav-link" href="/planets/all">Planets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/galaxies">Galaxy</a>
+          <a class="nav-link" href="/galaxies/all">Galaxies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stars/all">Stars</a>
         </li>
       </ul>
     </div>

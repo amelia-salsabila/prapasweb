@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanetController;
 use App\Http\Controllers\GalaxyController;
-use App\Models\Galaxy;
-use App\Models\Planet;
+use App\Http\Controllers\StarsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +16,21 @@ use App\Models\Planet;
 |
 */
 
-Route::get('/planets', [PlanetController::class, 'viewAllPlanets']);
-Route::get('/planets/detail', [PlanetController::class, 'viewPlanet']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/galaxies', [GalaxyController::class, 'viewAllGalaxies']);
-Route::get('/galaxies/detail', [GalaxyController::class, 'viewGalaxy']);
+Route::get('/home', function () {
+    return view('home', [
+        "title" => "Home"
+    ]);
+});
+
+Route::get('/planets/all', [PlanetController::class, 'index'])->name('planets.all');
+Route::get('/planets/detail/{id}', [PlanetController::class, 'showDetail']);
+
+Route::get('/galaxies/all', [GalaxyController::class, 'index'])->name('galaxies.all');
+Route::get('/galaxies/detail/{id}', [GalaxyController::class, 'showDetail']);
+
+Route::get('/stars/all', [StarsController::class, 'index'])->name('stars.all');
+Route::get('/stars/detail/{id}', [StarsController::class, 'showDetail']);

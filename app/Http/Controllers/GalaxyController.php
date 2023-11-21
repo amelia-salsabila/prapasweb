@@ -2,15 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Galaxy;
+use App\Models\galaxies;
 
-class PlanetController extends Controller
+class GalaxyController extends Controller
 {
-    public function viewAllGalaxies()
+    public function index()
     {
-        return view('galaxy', [
-            "tittle" => 'galaxy',
-            "extra" => Galaxy::all()
+        return view('galaxies.all', [
+            "title" => "Galaxies",
+            "galaxies" => Galaxies::all()
         ]);
+    }
+
+    public function showDetail($id)
+    {
+        $galaxy = Galaxies::find($id);
+
+
+        if (!$galaxy) {
+            abort(404);
+        }
+
+        return view('galaxies.detail', ['galaxy' => $galaxy]);
     }
 }
